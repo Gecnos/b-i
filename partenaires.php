@@ -4,3 +4,4 @@ $activePage = "partenaires";
 
 include 'includes/header.php'; 
 ?>
+
