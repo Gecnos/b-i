@@ -1,0 +1,464 @@
+:root {
+  --primary-green: #94ffc4;
+  --accent-green: #4a7c59;
+  --light-green: #e8f5e8;
+  --text-primary: #1a1a1a;
+  --text-secondary: #666666;
+  --text-light: #999999;
+  --background: #ffffff;
+  --background-light: #f8f9fa;
+  --background-dark: #1a1a1a;
+  --border-light: #e5e5e5;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background: var(--background);
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(252, 250, 250, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-light);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+
+.logo {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-green);
+  text-decoration: none;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: var(--text-primary);
+  font-weight: 500;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-menu a:hover {
+  color: var(--primary-green);
+}
+
+.nav-menu a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-green);
+  transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after {
+  width: 100%;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.search-container {
+  position: relative;
+}
+
+.search-input {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border-light);
+  border-radius: 25px;
+  background: var(--background-light);
+  font-size: 0.9rem;
+  width: 200px;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--primary-green);
+  width: 250px;
+}
+
+.research-journal-btn {
+  background: var(--primary-green);
+  color: rgb(15, 15, 15);
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.research-journal-btn:hover {
+  background: var(--accent-green);
+  transform: translateY(-2px);
+}
+
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.nav-dropdown-item {
+    position: relative; 
+    padding: 0; 
+}
+.nav-dropdown-item > a {
+    padding: 15px 20px;
+}
+.dropdown-content {
+    position: absolute; 
+    top: 100%; 
+    left: 0;
+    min-width: 180px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1000; 
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 10px 15px;
+    
+    
+    white-space: nowrap; 
+    overflow: hidden;    
+    text-overflow: ellipsis; 
+    display: block; 
+}
+.dropdown-content {
+    min-width: 250px; 
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+.nav-dropdown-item:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #f4f4f4; 
+    color: #333;
+    line-height: 1.4;
+}
+
+
+.page-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr; 
+    gap: 15px; 
+    max-width: 1400px; 
+    margin: 50px auto;
+    padding: 15px;
+}
+
+.main-event-block {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url('chemin/vers/votre/image-fond-conflit.jpg'); /* REMPLACEZ PAR VOTRE IMAGE */
+    background-size: cover;
+    background-position: center;
+    color: white; 
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    min-height: 700px; 
+    border-radius: 8px; 
+}
+.event-header {
+    background-color: rgba(255, 255, 255, 0.1); 
+    width: 50px;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 0;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.event-number {
+    font-size: 1.8rem;
+    line-height: 1;
+}
+
+.event-total {
+    font-size: 0.9rem;
+    padding-top: 2px;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    margin-top: 2px;
+}
+
+.event-content {
+    padding-top: 20px;
+}
+
+.event-mode {
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    color: #ffd700; 
+}
+
+.event-title {
+    font-size: 3rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.event-details {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.sidebar-blocks {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+}
+
+.sidebar-block {
+    padding: 20px;
+    min-height: 220px; 
+    border-radius: 8px;
+    color: white;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; 
+}
+
+.sidebar-block h2 {
+    font-size: 1.5rem;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.block-category {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+.block-cycles {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8)), url('chemin/vers/votre/image-fond-moyen-orient.jpg'); /* REMPLACEZ PAR VOTRE IMAGE */
+}
+
+
+.block-publication {
+    background-color: #1d1922; 
+    background-image: url('chemin/vers/votre/image-couverture-livre.png');
+    background-repeat: no-repeat;
+    background-position: top 80px right 20px;
+}
+
+.block-publication .book-title {
+    color: #ff9800; 
+    font-weight: 900;
+}
+
+.block-ares {
+    background-color: #2196f3; 
+    background-color: #1a1a1a;
+    justify-content: flex-start; 
+    min-height: 150px;
+}
+
+.ares-logo {
+    margin-bottom: 15px;
+}
+
+.ares-text {
+    font-size: 3.5rem;
+    font-weight: 900;
+    letter-spacing: -3px;
+    font-family: Arial Black, sans-serif;
+}
+
+.block-ares p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: 992px) {
+    .page-container {
+        grid-template-columns: 1fr;
+    }
+    .main-event-block {
+        min-height: 400px;
+    }
+    .event-title {
+        font-size: 2.5rem;
+    }
+}
+
+.page-section {
+    max-width: 900px;
+    margin: 50px auto;
+    text-align: center; 
+}
+
+.axis-tag {
+    display: inline-block; 
+    background-color: #333;
+    color: white;
+    padding: 5px 15px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 5px; 
+}
+
+.main-title {
+    margin-bottom: 30px; 
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    filter: grayscale(100%); 
+}
+
+.contact-page {
+    max-width: 900px; 
+    margin: 0 auto; 
+}
+.contact-row {
+    display: flex;
+    justify-content: space-between; 
+    margin-bottom: 40px; 
+    padding-bottom: 40px;
+    border-bottom: 1px solid #eee; 
+}
+
+.contact-row:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.contact-column {
+    flex: 1; 
+    padding-right: 30px; 
+}
+
+.title-iris, .title-service {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px; 
+}
+
+
+.contact-column p {
+    margin-bottom: 0;
+    font-size: 1rem
+}
+a {
+    color: #007bff; 
+    text-decoration: underline; 
+}
+
+a:hover {
+    color: #0056b3;
+}
+.contact-column.contact-general p:first-of-type {
+    margin-top: 10px;
+}
