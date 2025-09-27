@@ -1,6 +1,6 @@
 <?php
-$pageTitle = "Acceuil";
-$activePage = "Acceuil";
+$pageTitle = "partenaires";
+$activePage = "partenaires";
 
 include 'includes/header.php'; 
 ?>

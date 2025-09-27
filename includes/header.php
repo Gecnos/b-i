@@ -1,10 +1,7 @@
 <?php
-if (!isset($pageTitle)) {
-    $pageTitle = "Behanzin Institute";
-}
-if (!isset($activePage)) {
-    $activePage = "";
-}
+$pageTitle = "";
+$activePage = "accueil";
+include 'includes/header.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
