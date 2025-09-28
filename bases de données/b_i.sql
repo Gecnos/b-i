@@ -38,3 +38,10 @@ CREATE TABLE `partenaires` (
   `logo_url` VARCHAR(255),
   `site_web_url` VARCHAR(255)
 );
+
+CREATE TABLE `utilisateurs` (
+  `id_utilisateur` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `nom` VARCHAR(100) NOT NULL,
+  `email` VARCHAR(100) UNIQUE,
+  `mot_de_passe` VARCHAR(255) NOT NULL
+);

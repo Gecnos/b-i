@@ -1,6 +1,4 @@
-<?php
-$racine_site = 'b_i'; 
-?>
+
     <footer class="footer" id="footer">
         <div class="container">
             <div class="footer-content">

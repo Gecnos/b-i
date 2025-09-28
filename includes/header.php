@@ -1,8 +1,5 @@
-<?php
-$pageTitle = "";
-$activePage = "accueil";
-include 'includes/header.php';
-?>
+
+<?php $racine_site = '/b-i'; // Définit le dossier racine du site ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -24,10 +21,17 @@ include 'includes/header.php';
                 <li class="nav-dropdown-item">
                     <a href="axes.php" class="<?php if ($activePage === 'axes') echo 'active'; ?>">Axes</a>
                     <ul class="dropdown-content">
-                        <li><a href="axes1.php">Dynamiques sociales, démographiques et transformations culturelles</a></li>
-                        <li><a href="axes2.php">Sécurité, conflictualités et reconstruction post-crise</a></li>
-                        <li><a href="axes3.php">Géopolitique, ressources et relations internationales</a></li>
-                        <li><a href="axes4.php">Gouvernance, justice sociale et droits humains</a></li>
+                        <?php
+                        // On ne se connecte que si la variable $pdd n'existe pas déjà
+                        if (!isset($pdd)) {
+                            require_once 'includes/db.php';
+                        }
+                        $axes_menu_stmt = $pdd->query('SELECT id_axe, titre FROM axes ORDER BY code_axe ASC');
+                        $axes_menu = $axes_menu_stmt->fetchAll(PDO::FETCH_ASSOC);
+                        foreach ($axes_menu as $axe_item) {
+                            echo '<li><a href="axe_detail.php?id=' . $axe_item['id_axe'] . '">' . htmlspecialchars($axe_item['titre']) . '</a></li>';
+                        }
+                        ?>
                     </ul>
                 </li>
                 
@@ -37,9 +41,9 @@ include 'includes/header.php';
             </ul>
             
             <div class="header-actions">
-                <div class="search-container">
+                <!-- <div class="search-container">
                     <input type="search" placeholder="Rechercher..." class="search-input" id="search-input">
-                </div>
+                </div> -->
                 <a href="https://research-journal.behanzin.org" target="_blank" class="research-journal-btn">
                     Behanzin Research Journal
                 </a>
